@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ming.beans">
+<class name="User" table="users">
+	<id name="id" >
+		<generator class="increment"/>
+	</id>
+	<property name="user_username" />
+	<property name="user_passwd"/>
+	<property name="user_email"/>
+	<property name="user_imgurl"/>
+	<property name="user_detail"/>
+	<set name="orders" cascade="delete" lazy="false">
+		<key column="user_id"/>
+		<one-to-many class="Order"></one-to-many>
+	</set>
+	<set name="address"  cascade="all" lazy="false">
+		<key column="user_id"/>
+		<one-to-many class="Address"></one-to-many>
+	</set>
+
+
+</class>
+</hibernate-mapping>

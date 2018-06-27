@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ming.beans">
+	<class name="BookType" table="book_type">
+		<id name="id">
+			<generator class="increment"></generator>
+		</id>
+		<property name="type_name"/>
+		<set name="books" cascade="all">
+		<key  column="type_id" ></key>
+		<one-to-many  class="Book" ></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>        

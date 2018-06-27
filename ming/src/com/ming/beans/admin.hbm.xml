@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ming.beans">
+<class name="Admin" table="admin">
+	<id name="id" >
+		<generator class="increment"/>
+	</id>
+	<property name="admin_username" />
+	<property name="admin_passwd"/>
+	
+	<property name="admin_realname"/>
+	<property name="admin_email"/>
+	<property name="admin_imgurl"/>
+</class>
+</hibernate-mapping>

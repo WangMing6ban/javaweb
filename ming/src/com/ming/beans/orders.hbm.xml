@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ming.beans">
+<class name="Order" table="orders">
+     <id name="id">
+     	<generator class="increment"></generator>
+     
+     </id>
+     <property name="order_state"></property>
+     <many-to-one name="user" class="User" column="user_id" lazy="false" ></many-to-one>
+	 <set name="order_detail" cascade="all" lazy="false">
+	 	<key column="order_id"/>
+	 	<one-to-many class="OrderDetail" ></one-to-many>
+	 
+	 </set>
+
+
+</class>
+
+
+
+
+</hibernate-mapping>

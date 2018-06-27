@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ming.beans">
+	<class name="Book" table="book">
+		<id name="id">
+			<generator class="increment"/>
+		
+		</id>
+		<property name="book_name"/>
+		<property name="book_price"/>
+		<property name="book_description"/>
+		<property name="book_imgurl"/>
+		<property name="book_state"/>
+		<many-to-one name="type" lazy="false" class="BookType" column="type_id" ></many-to-one>
+		<set name="order_detail" cascade="none">
+			<key column="book_id"></key>
+			<one-to-many class="OrderDetail"></one-to-many>
+		</set>
+	</class>
+
+</hibernate-mapping>
